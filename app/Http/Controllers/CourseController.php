@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Http\Requests\CourseRequest;
 
 class CourseController extends Controller
 {
@@ -34,7 +35,7 @@ class CourseController extends Controller
         return view("/courses/show", compact('course'));
     }
 
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         $course = new Course;
 
