@@ -7,4 +7,6 @@
     <a href="{{ route('courses.index') }}">Back to courses</a>
     <p><strong>Category: </strong>{{ $course->category }}</p>
     <p>{{ $course->description }}</p>
+    <br>
+    <a href="{{ route('courses.edit', $course->id) }}">Edit course</a>
 @endsection
