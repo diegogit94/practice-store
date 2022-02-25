@@ -53,7 +53,7 @@ class CourseController extends Controller
         return view('courses.edit', compact('course'));
     }
 
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, Course $course)
     {
         $course->name = $request->name;
         $course->description = $request->description;
