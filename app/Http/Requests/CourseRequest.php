@@ -45,8 +45,10 @@ class CourseRequest extends FormRequest
      * 
      * @return [type]
      */
-    // public function messages()
-    // {
-        //
-    // }
+    public function messages()
+    {
+        return [
+            'name.required' => 'You need a description for that new course, champ ;)'
+        ];
+    }
 }
