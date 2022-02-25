@@ -26,4 +26,7 @@ Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.sh
 
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
 
+
+Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
+
 Route::get('/about-us', [InformationController::class, 'index'])->name('information.about');
