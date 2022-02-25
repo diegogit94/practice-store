@@ -11,18 +11,30 @@
             <br>
             <input type="text" name="name">
         </label>
+        @error('name')
+            <br>
+            <small>{{ $message }}</small>
+        @enderror
         <br>
         <label>
             Description:
             <br>
             <textarea type="text" name="description" rows="5"></textarea>
         </label>
+        @error('description')
+            <br>
+            <small>{{ $message }}</small>
+        @enderror
         <br>
         <label>
             Category:
             <br>
             <input type="text" name="category">
         </label>
+        @error('category')
+            <br>
+            <small>{{ $message }}</small>
+        @enderror
         <br>
         <br>
         <button type="submit">Create Course</button>
