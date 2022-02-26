@@ -30,4 +30,6 @@ Route::get('/courses/{course}/edit', [CourseController::class, 'edit'])->name('c
 
 Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
 
+Route::delete('/courses/{course}', [CourseController::class, 'delete'])->name('courses.delete');
+
 Route::get('/about-us', [InformationController::class, 'index'])->name('information.about');
