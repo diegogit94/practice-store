@@ -53,4 +53,11 @@ class CourseController extends Controller
 
         return redirect(route('courses.show', $course->id));
     }
+
+    public function delete(Course $course)
+    {
+        $course->delete();
+
+        return redirect(route('courses.index'));
+    }
 }
