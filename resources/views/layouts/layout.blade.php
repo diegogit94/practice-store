@@ -6,21 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> --}}
     <title>@yield('title', 'Demo')</title>
+    @include('layouts.partials.header')
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{{ route('home.index') }}">Home</a></li>
-            <li><a href="{{ route('courses.index') }}">Courses</a></li>
-            <li><a href="{{ route('courses.create') }}">Create a course</a></li>
-        </ul>
-    </nav>
     @yield('content')
-    <nav>
-        <ul>
-            <li><a href="{{ route('information.about') }}">About Us</a></li>
-            <li><a href="/about-us">Contact</a></li>
-        </ul>
-    </nav>
+    
+    @include('layouts.partials.footer')
 </body>
 </html>
