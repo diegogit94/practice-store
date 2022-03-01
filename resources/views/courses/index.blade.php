@@ -11,7 +11,7 @@
             {{-- <li>{{ $course->name }}</li>
             <li>{{ $course->description }}</li>
             <li>{{ $course->category }}</li> --}}
-            <a href="{{ route('courses.show', $course->id) }}">{{ $course->name }}</a>
+            <a href="{{ route('courses.show', $course) }}">{{ $course->name }}</a>
             <li>{{ $course->description }}</li>
             <li>{{ $course->category }}</li>
             <br>
