@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Http\Requests\CourseRequest;
 
 class CourseController extends Controller
 {
@@ -16,7 +17,7 @@ class CourseController extends Controller
         //     ['name' => 'Javascript']
         // ];
 
-        $courses = Course::paginate(4);
+        $courses = Course::orderBy('id', 'desc')->paginate(4);
 
         return view('courses.index', compact('courses'));
     }
@@ -27,10 +28,34 @@ class CourseController extends Controller
     
     }
 
-    public function show($id)
+    public function show(Course $course)
     {
-        $course = Course::find($id);
-
         return view("/courses/show", compact('course'));
+    }
+
+    public function store(CourseRequest $request)
+    {
+        $course = Course::create($request->all());
+
+        return redirect(route('courses.show', $course->id)); // I could only put "course" without access to id attribute
+    }
+
+    public function edit(Course $course)
+    {
+        return view('courses.edit', compact('course'));
+    }
+
+    public function update(CourseRequest $request, Course $course)
+    {
+        $course->update($request->all());
+
+        return redirect(route('courses.show', $course->id));
+    }
+
+    public function destroy(Course $course)
+    {
+        $course->delete();
+
+        return redirect(route('courses.index'));
     }
 }

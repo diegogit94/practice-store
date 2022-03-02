@@ -6,12 +6,14 @@
     <h1>See the courses ;)</h1>
     <hr>
 
+    <a href="{{ route('courses.create') }}">Create a course</a>
+
     <ul>
         @forelse ($courses as $course)
             {{-- <li>{{ $course->name }}</li>
             <li>{{ $course->description }}</li>
             <li>{{ $course->category }}</li> --}}
-            <a href="{{ route('courses.show', $course->id) }}">{{ $course->name }}</a>
+            <a href="{{ route('courses.show', $course) }}">{{ $course->name }}</a>
             <li>{{ $course->description }}</li>
             <li>{{ $course->category }}</li>
             <br>
