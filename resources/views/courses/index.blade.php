@@ -6,6 +6,8 @@
     <h1>See the courses ;)</h1>
     <hr>
 
+    <a href="{{ route('courses.create') }}">Create a course</a>
+
     <ul>
         @forelse ($courses as $course)
             {{-- <li>{{ $course->name }}</li>
