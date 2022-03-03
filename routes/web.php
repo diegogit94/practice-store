@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\http\Controllers\InformationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::resource('/courses', CourseController::class);
 
 Route::get('/about-us', [InformationController::class, 'index'])->name('information.about');
+
+Route::get('/contact-us', [ContactController::class, 'index'])->name('contact.index');
+
+Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
