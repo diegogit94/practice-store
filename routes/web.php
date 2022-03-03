@@ -4,6 +4,8 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\http\Controllers\InformationController;
 use Illuminate\Support\Facades\Route;
+use App\Mail\ContactUsMailable;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::resource('/courses', CourseController::class);
 
 Route::get('/about-us', [InformationController::class, 'index'])->name('information.about');
+
+Route::get('/contact-us', function() {
+    
+    $mail = new ContactUsMailable;
+    Mail::to('mr.tests.zero@gmail.com')->send($mail);
+
+    return 'Mail sent';
+
+});
