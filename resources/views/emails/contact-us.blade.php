@@ -13,6 +13,10 @@
     <p>
         Hi, we are {{ config('app.name') }}
     </p>
+    
+    <h1><strong>Name: </strong>{{ $request->name }}</h1>
+    <h1><strong>Description: </strong>{{ $request->description }}</h1>
+    <h1><strong>Email: </strong>{{ $request->email }}</h1>
 
 </body>
 </html>
