@@ -28,22 +28,14 @@ class CourseController extends Controller
     
     }
 
-    public function show($id)
+    public function show(Course $course)
     {
-        $course = Course::find($id);
-
         return view("/courses/show", compact('course'));
     }
 
     public function store(CourseRequest $request)
     {
-        $course = new Course;
-
-        $course->name = $request->name;
-        $course->description = $request->description;
-        $course->category = $request->category;
-
-        $course->save();
+        $course = Course::create($request->all());
 
         return redirect(route('courses.show', $course->id)); // I could only put "course" without access to id attribute
     }
@@ -55,12 +47,15 @@ class CourseController extends Controller
 
     public function update(CourseRequest $request, Course $course)
     {
-        $course->name = $request->name;
-        $course->description = $request->description;
-        $course->category = $request->category;
-
-        $course->update();
+        $course->update($request->all());
 
         return redirect(route('courses.show', $course->id));
+    }
+
+    public function destroy(Course $course)
+    {
+        $course->delete();
+
+        return redirect(route('courses.index'));
     }
 }
